@@ -1,0 +1,71 @@
+.priorities-container {
+    display: block;
+    background-color: white;
+    width: 100%;
+}
+
+.p-header h3{
+    float: left;
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+}
+
+.p-form {
+    width: 100%;
+    display: block;
+    float: left;
+}
+
+.priority-wrapper {
+    float: left;
+    display: block;
+    width: 90%;
+    border-bottom: 1px solid;
+    margin-left: 5%;
+}
+
+.priority-category {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.priority-input {
+    width: 50%;
+    float: left;
+}
+
+.priority-label {
+    height: 3vh;
+    font-size: small;
+    text-align: center;
+}
+
+.priority-value {
+    float: left;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: .4em;
+}
+
+.button-row {
+    width: 100%;
+    float: left;
+    display: block;
+}
+
+.sv-btn {
+    float: left;
+    margin-top: .4em;
+    margin-bottom: .4em;
+    width: 45.5%;
+    margin-left: 3%;
+    border-radius: 15px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+
