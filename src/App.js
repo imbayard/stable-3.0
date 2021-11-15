@@ -155,7 +155,7 @@ function App() {
     userHasAuthenticated(false);
     history.push("/login"); // Redirecit user to login screen after logout
   }
-  return !isAuthenticating && (
+  return (!isAuthenticating) ? (
     <div className="app">
       <Navbar collapseOnSelect bg='clear' expand="md" className="mb-3">
         <LinkContainer to="/">
@@ -196,7 +196,11 @@ function App() {
         </div>
       </AppContext.Provider>
     </div>
-  );
+  ) : (
+    <div>
+      Loading...
+    </div>
+  )
 }
 
 export default App;
