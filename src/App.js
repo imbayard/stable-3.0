@@ -191,14 +191,9 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
       <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated, settings, colorScheme, today, report, priorities }}>
-      {(isAuthenticated) ? (<div className="App">
+        <div className="App">
             <Routes />
-        </div>) : 
-        (
-          <div className="App">
-            <Signup />
-          </div>
-        )}
+        </div>
       </AppContext.Provider>
     </div>
   ) : (
