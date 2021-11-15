@@ -9,7 +9,7 @@ import Priorities from "../components/Priorities";
 import "./Home.css";
 
 export default function Home() {
-    const {colorScheme} = useAppContext();
+    const {colorScheme, isAuthenticated} = useAppContext();
     const [isDailyCheckInOpen, setDailyCheckInOpen] = useState(false);
     const [isPrioritiesOpen, openPriorities] = useState(false);
 
@@ -27,27 +27,35 @@ export default function Home() {
             )
         } else { return(<></>) }
     }
-
-    return(
-        <div className='container' style={{backgroundColor: colorScheme.dark}}>
-                <h1 className='container-header' style={{backgroundColor: colorScheme.main}}>Home Page</h1>
-                <Fade>
-                <span className='main-view-left'>
-                    <span className='top-view'>
-                        <Switches />
+    function renderLander(){
+        return(
+            <div>Must Log In / Sign Up</div>
+        )
+    }
+    function renderHome(){
+        return(
+            <div className='container' style={{backgroundColor: colorScheme.dark}}>
+                    <h1 className='container-header' style={{backgroundColor: colorScheme.main}}>Home Page</h1>
+                    <Fade>
+                    <span className='main-view-left'>
+                        <span className='top-view'>
+                            <Switches />
+                        </span>
+                        <span className='bottom-view'>
+                            <DailyReport />
+                        </span>
                     </span>
-                    <span className='bottom-view'>
-                        <DailyReport />
+                    <span className='main-view-right' style={{borderLeft: '1px solid', borderColor: colorScheme.main}}>
+                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Record Daily Check-In</button>
+                        {renderCheckInContainer()}
+                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>Analyze History</button>
+                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
+                        {renderPriorities()}
                     </span>
-                </span>
-                <span className='main-view-right' style={{borderLeft: '1px solid', borderColor: colorScheme.main}}>
-                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Record Daily Check-In</button>
-                    {renderCheckInContainer()}
-                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>Analyze History</button>
-                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
-                    {renderPriorities()}
-                </span>
-                </Fade>
-        </div>
-    )
+                    </Fade>
+            </div>
+        )
+    }
+    return((isAuthenticated) ? renderHome() : renderLander());
+    
 }
