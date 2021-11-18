@@ -13,6 +13,7 @@
     margin-top: 5%;
     background-color: #F0F0F0;
     border-radius: 15px;
+    height: 10%;
 }
 
 .focus-category {
@@ -37,4 +38,15 @@
     float: left;
     width: 60%;
     text-align: center;
+}
+
+@media screen and (max-width: 480px){
+    .focus-category h3 {
+        font-size: large;
+        margin-top: .25em;
+    }
+    .focus-label {
+        margin-top: .25em;
+        font-size: large;
+    }
 }

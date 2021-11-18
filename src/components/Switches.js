@@ -45,7 +45,7 @@ export default function Switches() {
         const length = report.length;
         for(let i = 0; i < length; i++){
             const el = report[i];
-            if(cat === el.cat && el.avg <= el.goal){
+            if(cat === el.cat && el.avg <= (el.goal / 7)){
                 return true;
             }
         }
@@ -56,23 +56,23 @@ export default function Switches() {
         return(
             <>
             <div className='switch' key={name1} >
-                <h6 className='switch-category' style={(warn1) ? {backgroundColor: colorScheme.warn, color: 'white'} : {backgroundColor: null}}>{name1}</h6>
+                <h6 className='switch-category' style={(warn1) ? {backgroundColor: colorScheme.fadedWarn, color: colorScheme.fail} : {backgroundColor: colorScheme.fadedSuccess, color: 'white'}}>{name1}</h6>
                 <button className='switch-button' style={(cat1 !== today.cat1.val) ? {boxShadow: '0px 4px 0px 2px rgba(0, 0, 0, 0.2)'} : {}} onClick={() => set1(!cat1)}>{(cat1) ? Check() : Times()}</button>
             </div>
             <div className='switch' key={name2}>
-                <h6 className='switch-category' style={(warn2) ? {backgroundColor: colorScheme.warn, color: 'white'} : {backgroundColor: null}}>{name2}</h6>
+                <h6 className='switch-category' style={(warn2) ? {backgroundColor: colorScheme.fadedWarn, color: colorScheme.fail} : {backgroundColor: colorScheme.fadedSuccess, color: 'white'}}>{name2}</h6>
                 <button className='switch-button' style={(cat2 !== today.cat2.val) ? {boxShadow: '0px 4px 0px 2px rgba(0, 0, 0, 0.2)'} : {}} onClick={() => set2(!cat2)}>{(cat2) ? Check() : Times()}</button>
             </div>
             <div className='switch' key={name3}>
-                <h6 className='switch-category' style={(warn3) ? {backgroundColor: colorScheme.warn, color: 'white'} : {backgroundColor: null}}>{name3}</h6>
+                <h6 className='switch-category' style={(warn3) ? {backgroundColor: colorScheme.fadedWarn, color: colorScheme.fail} : {backgroundColor: colorScheme.fadedSuccess, color: 'white'}}>{name3}</h6>
                 <button className='switch-button' style={(cat3 !== today.cat3.val) ? {boxShadow: '0px 4px 0px 2px rgba(0, 0, 0, 0.2)'} : {}} onClick={() => set3(!cat3)}>{(cat3) ? Check() : Times()}</button>
             </div>
             <div className='switch' key={name4}>
-                <h6 className='switch-category' style={(warn4) ? {backgroundColor: colorScheme.warn, color: 'white'} : {backgroundColor: null}}>{name4}</h6>
+                <h6 className='switch-category' style={(warn4) ? {backgroundColor: colorScheme.fadedWarn, color: colorScheme.fail} : {backgroundColor: colorScheme.fadedSuccess, color: 'white'}}>{name4}</h6>
                 <button className='switch-button' style={(cat4 !== today.cat4.val) ? {boxShadow: '0px 4px 0px 2px rgba(0, 0, 0, 0.2)'} : {}} onClick={() => set4(!cat4)}>{(cat4) ? Check() : Times()}</button>
             </div>
             <div className='switch' key={name5}>
-                <h6 className='switch-category' style={(warn5) ? {backgroundColor: colorScheme.warn, color: 'white'} : {backgroundColor: null}}>{name5}</h6>
+                <h6 className='switch-category' style={(warn5) ? {backgroundColor: colorScheme.fadedWarn, color: colorScheme.fail} : {backgroundColor: colorScheme.fadedSuccess, color: 'white'}}>{name5}</h6>
                 <button className='switch-button' style={(cat5 !== today.cat5.val) ? {boxShadow: '0px 4px 0px 2px rgba(0, 0, 0, 0.2)'} : {}} onClick={() => set5(!cat5)}>{(cat5) ? Check() : Times()}</button>
             </div>            
             <div className='switch' key="Trophy">

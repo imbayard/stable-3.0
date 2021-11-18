@@ -116,7 +116,9 @@ function App() {
             'success': '#95B562',
             'fail': '#B55077',
             'warn': '#E86A4F',
-            'focus': '#A050B5'
+            'focus': '#A050B5',
+            'fadedWarn': '#E8DFDC',
+            'fadedSuccess': '#AEB5A3'
           }
           break;
         case 'clear':
@@ -129,7 +131,9 @@ function App() {
             'success': '#00FC33',
             'fail': '#C94114',
             'warn': '#FC8900',
-            'focus': '#FCC30D'
+            'focus': '#FCC30D',
+            'fadedWarn': '#FCE5C7',
+            'fadedSuccess': '#D7FCDE'
           }
           break;
         default:
@@ -142,7 +146,9 @@ function App() {
             'success': '#95B562',
             'fail': '#B55077',
             'warn': '#E86A4F',
-            'focus': '#A050B5'
+            'focus': '#A050B5',
+            'fadedWarn': '#E8DFDC',
+            'fadedSuccess': '#AEB5A3'
           }
           break;
       }

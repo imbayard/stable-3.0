@@ -13,6 +13,10 @@ export default function DailyReport() {
                     <h3 className='focus-label'>Today's Focus</h3>
                     <div className='focus-category' style={{backgroundColor: colorScheme.focus}}><h3>{report[0].cat}</h3></div>
                 </div>
+                <div className='focus'>
+                    <h3 className='focus-label'>Lowest Priority Today</h3>
+                    <div className='focus-category' style={{backgroundColor: colorScheme.darkest}}><h3>{report[4].cat}</h3></div>
+                </div>
             </div>
         )
     }

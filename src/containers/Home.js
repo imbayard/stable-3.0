@@ -40,7 +40,7 @@ export default function Home() {
                 <span className='main-view-right' style={{borderColor: colorScheme.main}}>
                     <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Check-In</button>
                     {renderCheckInContainer()}
-                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>Analyze History</button>
+                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>History</button>
                     <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
                     {renderPriorities()}
                 </span>
