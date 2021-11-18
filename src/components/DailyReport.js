@@ -11,7 +11,7 @@ export default function DailyReport() {
             <div className='report-container'>
                 <div className='focus'>
                     <h3 className='focus-label'>Today's Focus</h3>
-                    <h3 className='focus-category' style={{backgroundColor: colorScheme.focus}}>{report[0].cat}</h3>
+                    <div className='focus-category' style={{backgroundColor: colorScheme.focus}}><h3>{report[0].cat}</h3></div>
                 </div>
             </div>
         )

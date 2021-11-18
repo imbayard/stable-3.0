@@ -34,25 +34,25 @@ export default function Home() {
     }
     function renderHome(){
         return(
-            <div className='container' style={{backgroundColor: colorScheme.dark}}>
-                    <h1 className='container-header' style={{backgroundColor: colorScheme.main}}>Home Page</h1>
-                    <Fade>
-                    <span className='main-view-left'>
-                        <span className='top-view'>
-                            <Switches />
-                        </span>
-                        <span className='bottom-view'>
-                            <DailyReport />
-                        </span>
+            <div className="container-wrapper">
+                <Fade>
+                <span style={{backgroundColor: colorScheme.main}} className='container-header'><h1>Home Page</h1></span>
+                <span className='main-view-right' style={{borderColor: colorScheme.main}}>
+                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Check-In</button>
+                    {renderCheckInContainer()}
+                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>Analyze History</button>
+                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
+                    {renderPriorities()}
+                </span>
+                <span className='main-view-left'>
+                    <span className='top-view'>
+                        <Switches />
                     </span>
-                    <span className='main-view-right' style={{borderLeft: '1px solid', borderColor: colorScheme.main}}>
-                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Record Daily Check-In</button>
-                        {renderCheckInContainer()}
-                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>Analyze History</button>
-                        <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
-                        {renderPriorities()}
+                    <span className='bottom-view'>
+                        <DailyReport />
                     </span>
-                    </Fade>
+                </span>
+                </Fade>
             </div>
         )
     }

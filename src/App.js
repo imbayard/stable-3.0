@@ -20,6 +20,7 @@ function App() {
   const [today, setToday] = useState(null);
   const [report, setDailyReport] = useState(null);
   const [priorities, setPriorities] = useState(null);
+  const [dayReady, setDayReady] = useState(false);
   useEffect(() => {    
     async function onLoad() {
       const isWelcome = (window.location.pathname === "/welcome") ? true : false;
@@ -100,6 +101,7 @@ function App() {
       } else {
         setToday(day);
       }
+      setDayReady(true);
     }
     function getColorScheme(settings) {
       let scheme = {};
@@ -157,43 +159,49 @@ function App() {
   }
   return (!isAuthenticating) ? (
     <div className="app">
-      <Navbar collapseOnSelect bg='clear' expand="md" className="mb-3">
-        <LinkContainer to="/">
-          <Navbar.Brand className="font-weight-bold text-muted">
-            Title
-          </Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Nav activeKey={window.location.pathname}>
-            {(!isWelcome) ? (isAuthenticated ? (
-              <>
-                <LinkContainer to="/settings">
-                  <Nav.Link className='text-muted'>Settings</Nav.Link>
-                </LinkContainer>
-                <Nav.Link className='text-muted' onClick={handleLogout}>Logout</Nav.Link>
-              </>
-            ) : (
-              <>
-                <LinkContainer to="/signup">
-                  <Nav.Link className='text-muted'>Signup</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/login">
-                  <Nav.Link className='text-muted'>Login</Nav.Link>
-                </LinkContainer>
-              </>
-            )) : (
-              <>
-              </>
-            )}
+        <Navbar collapseOnSelect bg='clear' expand="md" className="mb-3">
+          <LinkContainer to="/">
+            <Navbar.Brand className="font-weight-bold text-muted">
+              Title
+            </Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Nav activeKey={window.location.pathname}>
+              {(!isWelcome) ? (isAuthenticated ? (
+                <>
+                  <LinkContainer to="/settings">
+                    <Nav.Link className='text-muted'>Settings</Nav.Link>
+                  </LinkContainer>
+                  <Nav.Link className='text-muted' onClick={handleLogout}>Logout</Nav.Link>
+                </>
+              ) : (
+                <>
+                  <LinkContainer to="/signup">
+                    <Nav.Link className='text-muted'>Signup</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to="/login">
+                    <Nav.Link className='text-muted'>Login</Nav.Link>
+                  </LinkContainer>
+                </>
+              )) : (
+                <>
+                </>
+              )}
 
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated, settings, colorScheme, today, report, priorities }}>
-        <div className="App">
+        {dayReady ? (        
+          <div className="App">
             <Routes />
-        </div>
+          </div>) : (
+            <div className="App">
+              <h1>Loading...</h1>
+            </div>
+          ) }
+
       </AppContext.Provider>
     </div>
   ) : (

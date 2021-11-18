@@ -41,9 +41,16 @@ export default function DailyCheckIn(){
     }
 
     function resetDay() {
-        setHappy(today.checkInMini.happiness);
-        setExcite(today.checkInMini.excitement);
-        setNotes(today.checkInMini.notes);
+        if(today.checkInMini){
+            setHappy(today.checkInMini.happiness);
+            setExcite(today.checkInMini.excitement);
+            setNotes(today.checkInMini.notes);
+        } else {
+            setHappy(1);
+            setExcite(1);
+            setNotes("");
+        }
+        
     }
 
     async function updateDay(){
