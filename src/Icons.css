@@ -1,0 +1,10 @@
+.main {
+    width: 10%;
+    height: 10%;
+    margin-left: 45%;
+    margin-top: 20%;
+    opacity: 10%;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}

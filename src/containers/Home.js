@@ -5,14 +5,15 @@ import DailyCheckIn from '../components/DailyCheckIn';
 import { useAppContext } from "../libs/contextLib";
 import Fade from "../components/animations/Fade";
 import Priorities from "../components/Priorities";
+import {Spinner} from "../Icons";
 
 import "./Home.css";
+import Welcome from './Welcome';
 
 export default function Home() {
-    const {colorScheme, isAuthenticated} = useAppContext();
+    const {colorScheme, isAuthenticated, priorities} = useAppContext();
     const [isDailyCheckInOpen, setDailyCheckInOpen] = useState(false);
     const [isPrioritiesOpen, openPriorities] = useState(false);
-
     function renderCheckInContainer(){
         if(isDailyCheckInOpen){
             return(
@@ -56,6 +57,17 @@ export default function Home() {
             </div>
         )
     }
-    return((isAuthenticated) ? renderHome() : renderLander());
+
+    function renderWelcome() {
+        return (
+            <Welcome />
+        )
+    }
+
+    function welcome() {
+        return((priorities !== "") ? renderHome() : renderWelcome());
+    }
+
+    return((isAuthenticated) ? welcome() : renderLander());
     
 }

@@ -6,13 +6,40 @@ import {setPriorities} from "../libs/apiLib";
 
 import "./Priorities.css";
 
-export default function Priorities(){
+export default function Priorities({welcome, ...props}){
     const {colorScheme, priorities} = useAppContext();
-    const [cat1, setCat1] = useState(priorities.cat1);
-    const [cat2, setCat2] = useState(priorities.cat2);
-    const [cat3, setCat3] = useState(priorities.cat3);
-    const [cat4, setCat4] = useState(priorities.cat4);
-    const [cat5, setCat5] = useState(priorities.cat5);
+    const priorities_unset = {
+        'cat1': {
+            'cat' : 'mind',
+            'p': '1',
+            'g': 0
+        },
+        'cat2': {
+            'cat' : 'body',
+            'p': '1',
+            'g': 0
+        },
+        'cat3': {
+            'cat' : 'social',
+            'p': '1',
+            'g': 0
+        },
+        'cat4': {
+            'cat' : 'mindful',
+            'p': '1',
+            'g': 0
+        },
+        'cat5': {
+            'cat' : 'me time',
+            'p': '1',
+            'g': 0
+        },
+    }
+    const [cat1, setCat1] = useState((priorities !== "") ? priorities.cat1 : priorities_unset.cat1);
+    const [cat2, setCat2] = useState((priorities !== "") ? priorities.cat2 : priorities_unset.cat2);
+    const [cat3, setCat3] = useState((priorities !== "") ? priorities.cat3 : priorities_unset.cat3);
+    const [cat4, setCat4] = useState((priorities !== "") ? priorities.cat4 : priorities_unset.cat4);
+    const [cat5, setCat5] = useState((priorities !== "") ? priorities.cat5 : priorities_unset.cat5);
 
     const ps = [cat1, cat2, cat3, cat4, cat5];
     const ps_sorted = ps.sort((a,b) => a.p - b.p);
@@ -89,29 +116,45 @@ export default function Priorities(){
     }
 
     function hasChanged() {
-        if(
-            cat1 !== priorities.cat1 ||
-            cat2 !== priorities.cat2 ||
-            cat3 !== priorities.cat3 ||
-            cat4 !== priorities.cat4 ||
-            cat5 !== priorities.cat5
-        ){
-            return true;
+        if(priorities !== ""){
+            if(
+                cat1 !== priorities.cat1 ||
+                cat2 !== priorities.cat2 ||
+                cat3 !== priorities.cat3 ||
+                cat4 !== priorities.cat4 ||
+                cat5 !== priorities.cat5
+            ){
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            if(
+                cat1 !== priorities_unset.cat1 ||
+                cat2 !== priorities_unset.cat2 ||
+                cat3 !== priorities_unset.cat3 ||
+                cat4 !== priorities_unset.cat4 ||
+                cat5 !== priorities_unset.cat5
+            ){
+                return true;
+            } else {
+                return false;
+            }
         }
+        
     }
 
     function reset(){
-        setCat1(priorities.cat1);
-        setCat2(priorities.cat2);
-        setCat3(priorities.cat3);
-        setCat4(priorities.cat4);
-        setCat5(priorities.cat5);
+        setCat1((priorities !== "") ? priorities.cat1 : priorities_unset.cat1);
+        setCat2((priorities !== "") ? priorities.cat2 : priorities_unset.cat2);
+        setCat3((priorities !== "") ? priorities.cat3 : priorities_unset.cat3);
+        setCat4((priorities !== "") ? priorities.cat4 : priorities_unset.cat4);
+        setCat5((priorities !== "") ? priorities.cat5 : priorities_unset.cat5);
     }
     return(
         <div className='priorities-container'>
-            <div className='p-header'><h3>Priorities</h3></div>
+            <div className='p-header'><h3>Set Your Priorities</h3></div>
+            {(welcome) ? <p style={{color: colorScheme.main, textAlign: 'center'}}>Don't worry, you can change them later!</p> : <></>}
             <div className='p-form'>
                 {ps_sorted.map((p) => {
                     return(<Priority 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppContext } from "./libs/contextLib";
 import {FaTimes, FaCheck, FaRegGrinStars, FaRegFlushed, FaRegGrimace} from 'react-icons/fa';
 
+import "./Icons.css";
 export function Times(){
     const {colorScheme} = useAppContext();
     return(
@@ -34,5 +35,13 @@ export function Eh(){
     const {colorScheme} = useAppContext();
     return(
         <FaRegGrimace style={{color: colorScheme.dark}} size='auto'/>
+    )
+}
+
+export function Spinner(){
+    return(
+        <div class="spinner-border text-primary main" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     )
 }

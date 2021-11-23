@@ -9,6 +9,7 @@ import { AppContext } from "./libs/contextLib";
 import { useHistory } from "react-router-dom";
 import { onError } from "./libs/errorLib";
 import {getSettings, getDay, getDailyReport, getPriorities} from './libs/apiLib';
+import {Spinner} from "./Icons";
 
 function App() {
   const history = useHistory();
@@ -114,7 +115,7 @@ function App() {
             'darkest': '#497364',
             'lighter': '#A0D9C4',
             'success': '#95B562',
-            'fail': '#B55077',
+            'fail': '#DC3545',
             'warn': '#E86A4F',
             'focus': '#A050B5',
             'fadedWarn': '#E8DFDC',
@@ -144,7 +145,7 @@ function App() {
             'darkest': '#497364',
             'lighter': '#A0D9C4',
             'success': '#95B562',
-            'fail': '#B55077',
+            'fail': '#DC3545',
             'warn': '#E86A4F',
             'focus': '#A050B5',
             'fadedWarn': '#E8DFDC',
@@ -157,6 +158,15 @@ function App() {
     onLoad();
     console.log("app loaded");
   }, []);
+
+  function Loading() {
+    return(
+      <div className='loading'>
+        <h1 className='loading-header'>Loading...</h1>
+        {Spinner()}
+      </div>
+    )
+  }
 
   async function handleLogout() {
     await Auth.signOut();
@@ -211,9 +221,7 @@ function App() {
       </AppContext.Provider>
     </div>
   ) : (
-    <div>
-      Loading...
-    </div>
+    Loading()
   )
 }
 

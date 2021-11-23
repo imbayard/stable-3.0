@@ -11,7 +11,7 @@ const Priority = ({ p, pColor, changeP, changeG, pVal, gVal }) => {
         >
             <p className='priority-category'>{p}</p>
             <div className='priority-input'>
-                <p className='priority-label'><strong>Importance</strong> (1 = most important)</p>
+                <p className='priority-label'><strong>Importance</strong> (1 - 5)</p>
                 <input value={pVal} onChange={(e) => changeP({'cat': p, 'val': e.target.value})} className='priority-value' type='text'></input>
             </div>
             <div className='priority-input'>
