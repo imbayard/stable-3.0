@@ -5,7 +5,6 @@ import DailyCheckIn from '../components/DailyCheckIn';
 import { useAppContext } from "../libs/contextLib";
 import Fade from "../components/animations/Fade";
 import Priorities from "../components/Priorities";
-import {Spinner} from "../Icons";
 
 import "./Home.css";
 import Welcome from './Welcome';
