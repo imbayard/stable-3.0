@@ -108,3 +108,10 @@
 .grow:hover { 
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 480px) {
+    .circle-value{
+        font-size: medium;
+        text-align: center;
+    }
+}
