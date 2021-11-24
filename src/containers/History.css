@@ -1,0 +1,110 @@
+.history-container {
+    height: 90vh;
+    width: 90vw;
+    margin-left: 5vw;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.history {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 100%;
+    width: 100%;
+}
+
+.history-header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin: 0 0 0 0;
+}
+
+.history-message {
+    width: 60%;
+    margin-left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: x-large;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.15) inset;
+    font-style: italic;
+    background-color: #fefefe;
+}
+
+.history-circles-container {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.history-circles {
+    width: 60%;
+    height: 85%;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.15) inset;
+    background-color: #fefefe;
+    overflow-y: scroll;
+}
+
+.history-circles::-webkit-scrollbar {
+    display: none;
+}
+
+.circle {
+    float: left;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-tip {
+    font-style: italic;
+    font-size: x-large;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+    height: 5%;
+}
+
+.circle-value {
+    border-radius: 500000px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgba(0, 0, 0, 0.0);
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.circle-value:hover {
+    color: white;
+}
+
+.grow { 
+    transition: all .8s ease-in-out; 
+}
+    
+.grow:hover { 
+    transform: scale(1.1);
+}

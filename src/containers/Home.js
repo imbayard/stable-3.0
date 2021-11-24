@@ -5,6 +5,7 @@ import DailyCheckIn from '../components/DailyCheckIn';
 import { useAppContext } from "../libs/contextLib";
 import Fade from "../components/animations/Fade";
 import Priorities from "../components/Priorities";
+import { useHistory } from "react-router-dom";
 
 import "./Home.css";
 import Welcome from './Welcome';
@@ -13,6 +14,7 @@ export default function Home() {
     const {colorScheme, isAuthenticated, priorities} = useAppContext();
     const [isDailyCheckInOpen, setDailyCheckInOpen] = useState(false);
     const [isPrioritiesOpen, openPriorities] = useState(false);
+    const history = useHistory();
     function renderCheckInContainer(){
         if(isDailyCheckInOpen){
             return(
@@ -40,7 +42,7 @@ export default function Home() {
                 <span className='main-view-right' style={{borderColor: colorScheme.main}}>
                     <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => setDailyCheckInOpen(!isDailyCheckInOpen)}>Check-In</button>
                     {renderCheckInContainer()}
-                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}}>History</button>
+                    <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => history.push("/history")}>History</button>
                     <button className='buttons' style={{backgroundColor: colorScheme.main, color: 'white'}} onClick={() => openPriorities(!isPrioritiesOpen)}>Set Priorities</button>
                     {renderPriorities()}
                 </span>

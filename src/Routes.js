@@ -8,6 +8,7 @@ import NotFound from "./containers/NotFound";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Welcome from "./containers/Welcome";
+import History from "./containers/History";
 import SetSettings from "./containers/SetSettings";
 
 export default function Routes() {
@@ -30,6 +31,9 @@ export default function Routes() {
                 </AuthenticatedRoute>
                 <AuthenticatedRoute exact path="/set-settings">
                     <SetSettings />
+                </AuthenticatedRoute>
+                <AuthenticatedRoute exact path="/history">
+                    <History />
                 </AuthenticatedRoute>
                 <Route>
                     <NotFound />

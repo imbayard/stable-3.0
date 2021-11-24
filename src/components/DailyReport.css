@@ -16,6 +16,15 @@
     height: 10%;
 }
 
+.focus-label {
+    float: left;
+    width: 60%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .focus-category {
     float: left;
     width: 40%;
@@ -26,18 +35,15 @@
     color: white;
     height: 100%;
     font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .focus-category h3 {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-}
-
-.focus-label {
-    float: left;
-    width: 60%;
-    text-align: center;
 }
 
 @media screen and (max-width: 480px){
